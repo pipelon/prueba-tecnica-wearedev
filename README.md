@@ -1,18 +1,23 @@
 # Prueba Técnica - Gestión de Tareas
 
-Aplicación Full Stack para la gestión de tareas, desarrollada como parte de una prueba técnica.
+## 1. Descripción del proyecto y objetivo
 
-El proyecto permite crear, consultar, actualizar y eliminar tareas mediante una API REST y una interfaz web desarrollada con Angular.
+Aplicación Full Stack para la gestión de tareas.
 
-Actualmente el backend está implementado utilizando Node.js y Express, con persistencia de datos en memoria.
+El objetivo del proyecto es desarrollar una aplicación que permita crear, consultar, actualizar y eliminar tareas, utilizando una arquitectura separada entre frontend y backend y una API REST para la comunicación entre ambas aplicaciones.
+
+El backend proporciona los servicios necesarios para gestionar las tareas y validar la información recibida.
+
+Actualmente, la implementación del backend utiliza almacenamiento en memoria, por lo que la información se pierde al reiniciar el servidor.
 
 ---
 
-## Tecnologías utilizadas
+# 2. Tecnologías utilizadas
 
-### Backend
+## Backend
 
-- Node.js
+- Node.js: `v24.14.1`
+- npm: `v11.11.0`
 - Express
 - JavaScript (ES Modules)
 - Jest
@@ -21,28 +26,30 @@ Actualmente el backend está implementado utilizando Node.js y Express, con pers
 - CORS
 - dotenv
 
-### Frontend
+## Frontend
 
-- Angular
-- TypeScript
-- RxJS
-- Reactive Forms
+> Pendiente de implementación.
 
-> La sección del frontend será completada una vez finalizada su implementación.
+## Herramientas
+
+- Git: `2.43.0`
+- GitHub
 
 ---
 
-# Arquitectura
+# 3. Instalación
 
-El proyecto está dividido en dos aplicaciones independientes:
+## Requisitos previos
 
-```text
-prueba-tecnica-wearedev/
-│
-├── backend/
-│   └── API REST
-│
-├── frontend/
-│   └── Aplicación Angular
-│
-└── README.md
+Para ejecutar el proyecto se requiere tener instalado:
+
+- Node.js `v24.14.1` o una versión compatible.
+- npm `v11.11.0`
+- Git
+
+---
+
+## Clonar el repositorio
+
+```bash
+git clone https://github.com/pipelon/prueba-tecnica-wearedev.git
