@@ -1,48 +1,40 @@
-import { randomUUID } from "node:crypto";
+import { Task } from "../models/task.model.js";
 
 const tasks = [];
+let nextId = 1;
 
-export const taskRepository = {
+class TaskRepository {
   findAll() {
-    return [...tasks];
-  },
+    return tasks;
+  }
 
   findById(id) {
-    return tasks.find((task) => task.id === id) ?? null;
-  },
+    return tasks.find((task) => task.id === id);
+  }
 
-  create(data) {
-    const now = new Date().toISOString();
-
-    const task = {
-      id: randomUUID(),
-      ...data,
-      createdAt: now,
-      updatedAt: now,
-    };
+  create(taskData) {
+    const task = new Task({
+      id: nextId++,
+      ...taskData,
+    });
 
     tasks.push(task);
 
     return task;
-  },
+  }
 
-  update(id, data) {
-    const taskIndex = tasks.findIndex((task) => task.id === id);
+  update(id, taskData) {
+    const task = this.findById(id);
 
-    if (taskIndex === -1) {
+    if (!task) {
       return null;
     }
 
-    const updatedTask = {
-      ...tasks[taskIndex],
-      ...data,
-      updatedAt: new Date().toISOString(),
-    };
+    Object.assign(task, taskData);
+    task.updatedAt = new Date();
 
-    tasks[taskIndex] = updatedTask;
-
-    return updatedTask;
-  },
+    return task;
+  }
 
   delete(id) {
     const taskIndex = tasks.findIndex((task) => task.id === id);
@@ -54,5 +46,12 @@ export const taskRepository = {
     tasks.splice(taskIndex, 1);
 
     return true;
-  },
-};
+  }
+
+  clear() {
+    tasks.length = 0;
+    nextId = 1;
+  }
+}
+
+export default new TaskRepository();
