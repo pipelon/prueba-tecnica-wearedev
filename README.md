@@ -33,7 +33,6 @@ Para ejecutar el proyecto se requiere tener instalado:
 - Angular: `v21.2.21`
 - Git
 
----
 
 ## 1. Clonar el repositorio
 
@@ -61,4 +60,45 @@ PORT=3000
 cd ..
 cd frontend
 npm install
+```
+
+---
+
+# 4. Ejecución en desarrollo
+
+El proyecto está compuesto por un Backend desarrollado con Node.js + Express y un Frontend desarrollado con Angular. Ambos deben ejecutarse de manera independiente.
+
+### Backend
+
+Desde la carpeta `backend`:
+
+```bash
+npm run dev
+```
+
+El servidor se ejecutará en:
+
+```bash
+http://localhost:3000
+```
+
+La API REST estará disponible en:
+```bash
+http://localhost:3000/api/tasks
+```
+
+Documentación de la API mediante Swagger:
+```bash
+http://localhost:3000/api-docs
+```
+
+### Frontend
+Desde la carpeta frontend:
+```bash
+npm start
+```
+
+La aplicación Angular estará disponible en:
+```bash
+http://localhost:4200
 ```
