@@ -2,22 +2,16 @@
 
 ## 1. Descripción del proyecto y objetivo
 
-Aplicación Full Stack para la gestión de tareas.
-
-El objetivo del proyecto es desarrollar una aplicación que permita crear, consultar, actualizar y eliminar tareas, utilizando una arquitectura separada entre frontend y backend y una API REST para la comunicación entre ambas aplicaciones.
-
-El backend proporciona los servicios necesarios para gestionar las tareas y validar la información recibida.
-
-Actualmente, la implementación del backend utiliza almacenamiento en memoria, por lo que la información se pierde al reiniciar el servidor.
+Desarrollar una aplicación funcional para la gestión de tareas que permita crear, visualizar, editar y eliminar tareas. Esta prueba evalúa tu capacidad para construir una solución full-stack con buenas prácticas de desarrollo, manejo de errores, validaciones y arquitectura escalable.
 
 ---
 
 # 2. Tecnologías utilizadas
 
-## Backend
-
 - Node.js: `v24.14.1`
 - npm: `v11.11.0`
+- Angular: `v21.2.21`
+- Operating System : `linux x64`
 - Express
 - JavaScript (ES Modules)
 - Jest
@@ -25,15 +19,6 @@ Actualmente, la implementación del backend utiliza almacenamiento en memoria, p
 - Swagger / OpenAPI
 - CORS
 - dotenv
-
-## Frontend
-
-> Pendiente de implementación.
-
-## Herramientas
-
-- Git: `2.43.0`
-- GitHub
 
 ---
 
@@ -45,11 +30,35 @@ Para ejecutar el proyecto se requiere tener instalado:
 
 - Node.js `v24.14.1` o una versión compatible.
 - npm `v11.11.0`
+- Angular: `v21.2.21`
 - Git
 
 ---
 
-## Clonar el repositorio
+## 1. Clonar el repositorio
 
 ```bash
 git clone https://github.com/pipelon/prueba-tecnica-wearedev.git
+```
+
+## 2. Instalar dependencias del Backend
+
+```bash
+cd backend
+npm install
+```
+
+## 3. Configurar variables de entorno del Backend
+Por ahora la unica variable que se configuró es el puerto ya que decidí hacer el alamacenamiento de la información en memoria
+
+```bash
+PORT=3000
+```
+
+## 4. Instalar dependencias del Frontend
+
+```bash
+cd ..
+cd frontend
+npm install
+```
