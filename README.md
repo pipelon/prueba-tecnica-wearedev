@@ -105,7 +105,7 @@ http://localhost:4200
 
 ---
 
-# 5. Arquitectura
+# 5. Arquitectura y decisiones técnicas
 
 La aplicación está dividida en dos proyectos independientes:
 
@@ -243,3 +243,64 @@ DELETE /api/tasks/:id
 Las respuestas se intercambian en formato JSON.
 
 El Backend es responsable de las validaciones, reglas de negocio y manejo de errores, mientras que el Frontend se encarga de la interacción con el usuario, validaciones del formulario, visualización de información y manejo de los estados de la interfaz.
+
+---
+
+## 6. Funcionalidades implementadas
+
+### Backend
+
+- API REST para la gestión de tareas.
+- Creación de tareas mediante `POST /api/tasks`.
+- Listado de tareas mediante `GET /api/tasks`.
+- Consulta de una tarea por ID mediante `GET /api/tasks/:id`.
+- Actualización de tareas mediante `PUT /api/tasks/:id`.
+- Eliminación de tareas mediante `DELETE /api/tasks/:id`.
+- Almacenamiento de tareas en memoria.
+- Validación de campos obligatorios.
+- Validación de longitud máxima del título y descripción.
+- Validación del estado de la tarea mediante valores permitidos:
+  - `pending`
+  - `in_progress`
+  - `done`
+- Manejo de errores y respuestas HTTP apropiadas.
+- Documentación de la API mediante Swagger.
+- Tests unitarios para servicios, controladores y repositorio.
+
+### Frontend
+
+- Listado de tareas.
+- Creación de nuevas tareas.
+- Edición de tareas existentes.
+- Eliminación de tareas.
+- Cambio de estado de las tareas:
+  - `pending`
+  - `in_progress`
+  - `done`
+- Formularios reactivos con validaciones.
+- Consumo de la API mediante `HttpClient`.
+- Manejo de operaciones asíncronas mediante Observables.
+- Tipado mediante interfaces TypeScript.
+- Manejo de errores HTTP.
+- Mensajes diferenciados para errores comunes como `400`, `404`, `500` y timeout.
+- Indicadores de carga durante las peticiones.
+- Mensajes de éxito y error para las operaciones realizadas.
+- Confirmación antes de eliminar una tarea.
+- Modal reutilizable para crear y editar tareas.
+- Búsqueda de tareas por título o descripción.
+- Diseño responsive para diferentes tamaños de pantalla.
+- Uso de Signals para el manejo reactivo del estado de la interfaz.
+
+### Puntos extra implementados
+
+Además de las funcionalidades mínimas solicitadas, se implementaron los siguientes puntos adicionales:
+
+- Indicadores de loading.
+- Confirmación antes de eliminar.
+- Mensajes de éxito y error amigables.
+- Configuración de la URL de la API mediante archivos de entorno.
+- Modal reutilizable para creación y edición.
+- UI responsive.
+- Filtro/búsqueda de tareas.
+- Tests unitarios en el Backend.
+- Documentación de API mediante Swagger.

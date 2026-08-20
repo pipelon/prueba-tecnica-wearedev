@@ -1,55 +1,34 @@
 @if (visible) {
-
   <div class="modal-backdrop" (click)="closeModal()">
-
     <div class="modal" (click)="$event.stopPropagation()">
-
       <div class="modal-header">
-
         <h2>
           {{ task ? 'Editar tarea' : 'Nueva tarea' }}
         </h2>
 
-        <button
-          type="button"
-          class="close-button"
-          (click)="closeModal()">
-          ×
-        </button>
-
+        <button type="button" class="close-button" (click)="closeModal()">×</button>
       </div>
 
       <form [formGroup]="taskForm" (ngSubmit)="submit()">
-
         <div class="form-group">
-
-          <label for="title">
-            Título *
-          </label>
+          <label for="title"> Título * </label>
 
           <input
             id="title"
             type="text"
             formControlName="title"
             placeholder="Ej. Terminar prueba técnica"
-          >
+          />
 
-          @if (
-            taskForm.controls.title.touched &&
-            taskForm.controls.title.invalid
-          ) {
+          @if (taskForm.controls.title.touched && taskForm.controls.title.invalid) {
             <small class="validation-error">
               El título es obligatorio y debe tener máximo 100 caracteres.
             </small>
           }
-
         </div>
 
         <div class="form-group">
-
-          <label for="description">
-            Descripción
-          </label>
+          <label for="description"> Descripción </label>
 
           <textarea
             id="description"
@@ -66,62 +45,34 @@
               La descripción no puede superar los 500 caracteres.
             </small>
           }
-
         </div>
 
         <div class="form-group">
-
-          <label for="status">
-            Estado
-          </label>
+          <label for="status"> Estado </label>
 
           <select id="status" formControlName="status">
+            <option value="pending">Pendiente</option>
 
-            <option value="pending">
-              Pendiente
-            </option>
+            <option value="in_progress">En progreso</option>
 
-            <option value="in_progress">
-              En progreso
-            </option>
-
-            <option value="done">
-              Completada
-            </option>
-
+            <option value="done">Completada</option>
           </select>
-
         </div>
 
         <div class="modal-actions">
-
-          <button
-            type="button"
-            class="btn-secondary"
-            (click)="closeModal()"
-            [disabled]="isSaving">
+          <button type="button" class="btn-secondary" (click)="closeModal()" [disabled]="isSaving">
             Cancelar
           </button>
 
-          <button
-            type="submit"
-            class="btn-primary"
-            [disabled]="isSaving">
-
+          <button type="submit" class="btn-primary" [disabled]="isSaving">
             @if (isSaving) {
               Guardando...
             } @else {
               {{ task ? 'Actualizar' : 'Crear tarea' }}
             }
-
           </button>
-
         </div>
-
       </form>
-
     </div>
-
   </div>
-
 }

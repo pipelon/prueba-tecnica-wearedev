@@ -1,18 +1,11 @@
 <div class="task-list">
-
   <div class="header">
-
     <div>
       <h1>Mis tareas</h1>
       <p>Gestiona tus tareas de forma sencilla</p>
     </div>
 
-    <button
-      class="btn-primary"
-      (click)="openCreateModal()">
-      + Nueva tarea
-    </button>
-
+    <button class="btn-primary" (click)="openCreateModal()">+ Nueva tarea</button>
   </div>
 
   @if (successMessage()) {
@@ -25,35 +18,25 @@
     <div class="error-message">
       {{ errorMessage() }}
 
-      <button (click)="loadTasks()">
-        Intentar nuevamente
-      </button>
+      <button (click)="loadTasks()">Intentar nuevamente</button>
     </div>
   }
 
   <div class="search-container">
-
     <input
       type="text"
       placeholder="Buscar tareas..."
       [value]="searchTerm()"
       (input)="searchTerm.set($any($event.target).value)"
-    >
-
+    />
   </div>
 
   @if (isLoading()) {
-
-    <div class="loading">
-      Cargando...
-    </div>
-
+    <div class="loading">Cargando...</div>
   }
 
   @if (!isLoading() && filteredTasks().length === 0) {
-
     <div class="empty-state">
-
       <h2>
         {{ searchTerm() ? 'No encontramos tareas' : 'No tienes tareas' }}
       </h2>
@@ -65,21 +48,14 @@
             : 'Crea tu primera tarea para comenzar.'
         }}
       </p>
-
     </div>
-
   }
 
   @if (!isLoading() && filteredTasks().length > 0) {
-
     <div class="tasks">
-
       @for (task of filteredTasks(); track task.id) {
-
         <div class="task-card">
-
           <div class="task-header">
-
             <h2>
               {{ task.title }}
             </h2>
@@ -88,8 +64,8 @@
               class="status"
               [class.pending]="task.status === 'pending'"
               [class.in-progress]="task.status === 'in_progress'"
-              [class.done]="task.status === 'done'">
-
+              [class.done]="task.status === 'done'"
+            >
               @if (task.status === 'pending') {
                 Pendiente
               }
@@ -101,64 +77,33 @@
               @if (task.status === 'done') {
                 Completada
               }
-
             </span>
-
           </div>
 
           @if (task.description) {
-
             <p class="description">
               {{ task.description }}
             </p>
-
           }
 
           <div class="task-footer">
-
             <small>
               Creada:
-              {{ task.createdAt | date:'dd/MM/yyyy HH:mm' }}
+              {{ task.createdAt | date: 'dd/MM/yyyy HH:mm' }}
             </small>
 
             <div class="actions">
+              <button class="btn-status" (click)="changeStatus(task)">Cambiar estado</button>
 
-              <button
-                class="btn-status"
-                (click)="changeStatus(task)">
+              <button class="btn-secondary" (click)="openEditModal(task)">Editar</button>
 
-                Cambiar estado
-
-              </button>
-
-              <button
-                class="btn-secondary"
-                (click)="openEditModal(task)">
-
-                Editar
-
-              </button>
-
-              <button
-                class="btn-danger"
-                (click)="deleteTask(task)">
-
-                Eliminar
-
-              </button>
-
+              <button class="btn-danger" (click)="deleteTask(task)">Eliminar</button>
             </div>
-
           </div>
-
         </div>
-
       }
-
     </div>
-
   }
-
 </div>
 
 <app-task-modal
@@ -166,5 +111,6 @@
   [task]="selectedTask()"
   [isSaving]="isSaving()"
   (close)="closeModal()"
-  (save)="saveTask($event)">
+  (save)="saveTask($event)"
+>
 </app-task-modal>
