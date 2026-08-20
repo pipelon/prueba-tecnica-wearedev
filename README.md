@@ -34,27 +34,27 @@ Para ejecutar el proyecto se requiere tener instalado:
 - Git
 
 
-## 1. Clonar el repositorio
+### 1. Clonar el repositorio
 
 ```bash
 git clone https://github.com/pipelon/prueba-tecnica-wearedev.git
 ```
 
-## 2. Instalar dependencias del Backend
+### 2. Instalar dependencias del Backend
 
 ```bash
 cd backend
 npm install
 ```
 
-## 3. Configurar variables de entorno del Backend
+### 3. Configurar variables de entorno del Backend
 Por ahora la unica variable que se configuró es el puerto ya que decidí hacer el alamacenamiento de la información en memoria
 
 ```bash
 PORT=3000
 ```
 
-## 4. Instalar dependencias del Frontend
+### 4. Instalar dependencias del Frontend
 
 ```bash
 cd ..
